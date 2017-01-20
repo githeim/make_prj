@@ -214,8 +214,8 @@ CONFIG_DIC ={
         'OBJDUMP':   'objdump',
         'AR':       'ar',
         'NM':       'nm',
-        'CFLAGS':   '',
-        'CXXFLAGS':   '',
+        'CFLAGS':   ['',],
+        'CXXFLAGS':   ['',],
         'SHLIBSUFFIX':'.so',
         'SHLIBPREFIX':'lib',     
         'PROGSUFFIX':'',
@@ -235,8 +235,8 @@ CONFIG_DIC ={
         'OBJDUMP':  'x86_64-w64-mingw32-objdump',
         'AR':       'x86_64-w64-mingw32-ar',
         'NM':       'x86_64-w64-mingw32-nm',
-        'CFLAGS':   '',
-        'CXXFLAGS':   '',
+        'CFLAGS':   [''],
+        'CXXFLAGS':   ['',],
         'SHLIBSUFFIX':'.dll', # for Windows DLL
         'SHLIBPREFIX':'',      # for Windows DLL
         'SHCCFLAGS':'', #in Windows -fPIC option isn't needed

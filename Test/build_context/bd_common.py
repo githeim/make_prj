@@ -84,6 +84,9 @@ def Copy_Module_OutputFiles(Top_Path,target_module_name,sub_module_name,src_conf
                 shutil.copyfile(src_file_path,target_file_path)
             else:
                 print('Already exist submodule['+sub_module_name+'] file ['+filename+']')
+                if ( filecmp.cmp(src_file_path,target_file_path) == False ) :
+                    print('The sub module file ['+src_file_path+'] has been updated, now copy it')
+                    shutil.copyfile(src_file_path,target_file_path)
 
 
 ##
