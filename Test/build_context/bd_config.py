@@ -22,7 +22,7 @@ CONFIG_DIC ={
         'SHLIBSUFFIX':'.so',
         'SHLIBPREFIX':'lib',     
         'PROGSUFFIX':'',
-        'LINKFLAGS':'-pthread',
+        'LINKFLAGS':['-pthread'],
     },
     'x64_Windows':{
         'PATH':     '/opt/mingw64/bin'+':'+str(os.environ['PATH']),
@@ -44,7 +44,7 @@ CONFIG_DIC ={
         'SHLIBPREFIX':'',      # for Windows DLL
         'SHCCFLAGS':'', #in Windows -fPIC option isn't needed
         'PROGSUFFIX':'.exe',
-        'LINKFLAGS':'-static-libgcc -static-libstdc++ ',
+        'LINKFLAGS':['-static-libgcc', '-static-libstdc++'],
     },
     'arm_Android':{
     },
