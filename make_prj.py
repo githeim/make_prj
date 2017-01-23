@@ -92,8 +92,9 @@ if TARGET_CONFIG == '':
 # ===========================================
 
 # dependent module builds ===================
-if (Do_dependent_module_build(TARGET_CONFIG) != True ):
-    exit(1)
+if (GetOption('clean') != True) :
+    if (Do_dependent_module_build(TARGET_CONFIG) != True ):
+        exit(1)
 # ===========================================
  
 # Setup Build Environment ===========
