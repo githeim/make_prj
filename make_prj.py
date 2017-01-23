@@ -145,7 +145,11 @@ if (Get_env_var(TARGET_CONFIG,'target_lib_name') ==[]):
     elif(LIB_TYPE == 'Static') :
         TARGET_LIB_FILE='lib/'+'lib'+TARGET_NAME+'.a'
 else :
-    TARGET_LIB_FILE='lib/'+Get_env_var(TARGET_CONFIG,'target_lib_name')
+    if (LIB_TYPE == 'Shared') :
+        TARGET_LIB_FILE='lib/'+SHLIBPREFIX+Get_env_var(TARGET_CONFIG,'target_lib_name')+SHLIBSUFFIX
+    elif(LIB_TYPE == 'Static') :
+        TARGET_LIB_FILE='lib/'+'lib'+Get_env_var(TARGET_CONFIG,'target_lib_name')+'.a'
+    TARGET_NAME=Get_env_var(TARGET_CONFIG,'target_lib_name')
 
 if (Get_env_var(TARGET_CONFIG,'target_bin_name') ==[]):
     TARGET_EXE_FILE='bin/'+TARGET_NAME+PROGSUFFIX
@@ -953,7 +957,7 @@ g_Bd_Environment = [
             ['x64_Linux_ubuntu',
                [
                   ['inc_path',[ ] ],
-                  ['lib_path',['out/x64_Linux_ubuntu','out/x64_Linux_ubuntu/lib'] ],
+                  ['lib_path',[ ] ],
                   ['lib'     ,[ ] ],
                   ['lib_src' ,[ ] ],
                   ['src'     ,['src/main.cpp'] ],
@@ -963,12 +967,13 @@ g_Bd_Environment = [
                   ['test_lib' ,['gtest'] ], 
                   ['test_inc_path' ,['"""+getTestFramework_Path()+"""/include'] ], 
                   ['test_lib_path' ,['"""+getTestFramework_Path()+"""/mybuild'] ], 
+                  #['target_lib_name' ,'customized_lib_name' ], # use this to change the library name
                ],
             ],
             ['x64_Windows',
                [
                   [ 'inc_path',[ ] ],
-                  [ 'lib_path',['out/x64_Windows','out/x64_Windows/lib' ] ],
+                  [ 'lib_path',[ ] ],
                   [ 'lib'     ,[ ] ],
                   [ 'lib_src' ,[ ] ],
                   [ 'src'     ,['src/main.cpp'] ],

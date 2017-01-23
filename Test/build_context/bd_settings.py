@@ -50,7 +50,7 @@ g_Bd_Environment = [
             ['x64_Linux_ubuntu',
                [
                   ['inc_path',[ ] ],
-                  ['lib_path',['out/x64_Linux_ubuntu','out/x64_Linux_ubuntu/lib'] ],
+                  ['lib_path',[ ] ],
                   ['lib'     ,[ ] ],
                   ['lib_src' ,[ ] ],
                   ['src'     ,['src/main.cpp'] ],
@@ -60,12 +60,13 @@ g_Bd_Environment = [
                   ['test_lib' ,['gtest'] ], 
                   ['test_inc_path' ,['/home/t0/gtest/googletest/include'] ], 
                   ['test_lib_path' ,['/home/t0/gtest/googletest/mybuild'] ], 
+                  #['target_lib_name' ,'customized_lib_name' ], # use this to change the library name
                ],
             ],
             ['x64_Windows',
                [
                   [ 'inc_path',[ ] ],
-                  [ 'lib_path',['out/x64_Windows','out/x64_Windows/lib' ] ],
+                  [ 'lib_path',[ ] ],
                   [ 'lib'     ,[ ] ],
                   [ 'lib_src' ,[ ] ],
                   [ 'src'     ,['src/main.cpp'] ],

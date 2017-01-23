@@ -79,7 +79,11 @@ if (Get_env_var(TARGET_CONFIG,'target_lib_name') ==[]):
     elif(LIB_TYPE == 'Static') :
         TARGET_LIB_FILE='lib/'+'lib'+TARGET_NAME+'.a'
 else :
-    TARGET_LIB_FILE='lib/'+Get_env_var(TARGET_CONFIG,'target_lib_name')
+    if (LIB_TYPE == 'Shared') :
+        TARGET_LIB_FILE='lib/'+SHLIBPREFIX+Get_env_var(TARGET_CONFIG,'target_lib_name')+SHLIBSUFFIX
+    elif(LIB_TYPE == 'Static') :
+        TARGET_LIB_FILE='lib/'+'lib'+Get_env_var(TARGET_CONFIG,'target_lib_name')+'.a'
+    TARGET_NAME=Get_env_var(TARGET_CONFIG,'target_lib_name')
 
 if (Get_env_var(TARGET_CONFIG,'target_bin_name') ==[]):
     TARGET_EXE_FILE='bin/'+TARGET_NAME+PROGSUFFIX
