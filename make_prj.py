@@ -193,6 +193,13 @@ Export('SWIT_FILES')
 SConscript('./SConscript',variant_dir='out/'+TARGET_CONFIG,duplicate=0)
 """
 
+def getScript_run_sh():
+    return \
+"""#!/bin/bash
+export LD_LIBRARY_PATH=out/x64_Linux_ubuntu/lib
+out/x64_Linux_ubuntu/bin/"""+getPrjName()+""" $*
+"""
+
 def getScript_bd_sh():
     return \
 """#!/bin/bash
@@ -1121,7 +1128,8 @@ g_Prj_Contents = [
         ["Project root",        get_dirRoot,[
                                                 ["SConstruct",getScript_SConstruct],
                                                 ["SConscript",getScript_SConscript],
-                                                ["bd.sh",getScript_bd_sh]
+                                                ["bd.sh",getScript_bd_sh],
+                                                ["run.sh",getScript_run_sh],
                                             ]
                                                     ],
         ["include directory",   get_dir_inc,[
