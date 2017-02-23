@@ -113,7 +113,8 @@ print('Number of CPU in the system : '+str(num_cpu))
 # =================================================
 
 # Post Build procedure ============================
-atexit.register(display_build_status,TARGET_CONFIG)
+if (GetOption('clean') != True) :
+  atexit.register(display_build_status,TARGET_CONFIG)
 # =================================================
 
 LIBS            = Get_env_var(TARGET_CONFIG,'lib')
